@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sin Límites | Comunidad</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050b12;
+            color: white;
+        }
+
+        /* BARRA SUPERIOR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 11, 18, 0.95);
+            border-bottom: 1px solid #163447;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+            color: #4dcfff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #4dcfff;
+        }
+
+        /* INICIO */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+
+            background:
+                radial-gradient(circle at center, rgba(77,207,255,0.18), transparent 45%),
+                linear-gradient(135deg, #050b12, #071a2b);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            font-weight: 900;
+            color: #4dcfff;
+            text-shadow: 0 0 35px rgba(77,207,255,0.45);
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 22px;
+            color: #c8f2ff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #a9c8d5;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .discord {
+            background: #4dcfff;
+            color: #041018;
+        }
+
+        .discord:hover {
+            background: #8be3ff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(77,207,255,0.35);
+        }
+
+        .normativa {
+            border: 1px solid #4dcfff;
+            color: #4dcfff;
+        }
+
+        .normativa:hover {
+            background: #4dcfff;
+            color: #041018;
+        }
+
+        /* SECCIONES */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            color: #4dcfff;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #8faebb;
+        }
+
+        /* TARJETAS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #091521;
+            border: 1px solid #163447;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #4dcfff;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: #4dcfff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #abc3ce;
+            line-height: 1.6;
+        }
+
+        /* NORMATIVA */
+
+        #normativa {
+            background: #07111b;
+            max-width: none;
+        }
+
+        .normativa-content {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .rules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .rule {
+            background: #091521;
+            border-left: 4px solid #4dcfff;
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        .rule-number {
+            color: #4dcfff;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .rule h3 {
+            margin-bottom: 10px;
+        }
+
+        .rule p {
+            color: #a9c2cd;
+            line-height: 1.6;
+        }
+
+        /* DISCORD */
+
+        .discord-section {
+            text-align: center;
+        }
+
+        .discord-box {
+            background: linear-gradient(135deg, #091521, #0b2030);
+            border: 1px solid #4dcfff;
+            border-radius: 20px;
+            padding: 50px 25px;
+        }
+
+        .discord-box h2 {
+            font-size: 35px;
+            color: #4dcfff;
+            margin-bottom: 15px;
+        }
+
+        .discord-box p {
+            color: #aec6d1;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #03070b;
+            border-top: 1px solid #163447;
+            color: #718b97;
+            font-size: 13px;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+
+    <header>
+        <nav>
+
+            <div class="logo">
+                SIN LÍMITES
+            </div>
+
+            <div>
+                <a href="#inicio">Inicio</a>
+                <a href="#normativa">Normativa</a>
+                <a href="#comunidad">Comunidad</a>
+                <a href="#discord">Discord</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- INICIO -->
+
+    <div class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>SIN LÍMITES</h1>
+
+            <h2>Comunidad • Respeto • Diversión</h2>
+
+            <p>
+                Bienvenido a Sin Límites.
+                Aquí encontrarás toda la información de nuestra comunidad,
+                normativa y acceso directo a nuestro servidor de Discord.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="https://discord.gg/e3uEzf4DPj"
+                    target="_blank"
+                    class="btn discord"
+                >
+                    💬 ENTRAR AL DISCORD
+                </a>
+
+                <a
+                    href="#normativa"
+                    class="btn normativa"
+                >
+                    📜 VER NORMATIVA
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMUNIDAD -->
+
+    <section id="comunidad">
+
+        <div class="title">
+
+            <h2>Nuestra Comunidad</h2>
+
+            <p>
+                Todo lo que necesitas saber sobre Sin Límites.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>👥 Comunidad</h3>
+
+                <p>
+                    Forma parte de nuestra comunidad y conoce
+                    nuevos jugadores y personas.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎮 Diversión</h3>
+
+                <p>
+                    Participa en actividades, eventos y diferentes
+                    experiencias dentro de la comunidad.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🛡️ Respeto</h3>
+
+                <p>
+                    Buscamos mantener un ambiente agradable,
+                    respetuoso y seguro para todos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📢 Información</h3>
+
+                <p>
+                    Mantente informado sobre novedades,
+                    anuncios y cambios de la comunidad.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NORMATIVA -->
+
+    <div id="normativa">
+
+        <div class="normativa-content">
+
+            <section>
+
+                <div class="title">
+
+                    <h2>📜 Normativa</h2>
+
+                    <p>
+                        Reglas generales de nuestra comunidad.
+                    </p>
+
+                </div>
+
+                <div class="rules">
+
+                    <div class="rule">
+
+                        <div class="rule-number">
+                            REGLA 01
+                        </div>
+
+                        <h3>Respeto</h3>
+
+                        <p>
+                            Mantén siempre el respeto hacia los demás
+                            miembros de la comunidad.
+                        </p>
+
+                    </div>
+
+
+                    <div class="rule">
+
+                        <div class="rule-number">
+                            REGLA 02
+                        </div>
+
+                        <h3>No spam</h3>
+
+                        <p>
+                            No está permitido enviar spam,
+                            mensajes repetitivos o contenido innecesario.
+                        </p>
+
+                    </div>
+
+
+                    <div class="rule">
+
+                        <div class="rule-number">
+                            REGLA 03
+                        </div>
+
+                        <h3>No insultos</h3>
+
+                        <p>
+                            Evita insultos, amenazas o comportamientos
+                            que perjudiquen la convivencia.
+                        </p>
+
+                    </div>
+
+
+                    <div class="rule">
+
+                        <div class="rule-number">
+                            REGLA 04
+                        </div>
+
+                        <h3>Contenido</h3>
+
+                        <p>
+                            No publiques contenido ilegal, ofensivo
+                            o que incumpla las normas de Discord.
+                        </p>
+
+                    </div>
+
+
+                    <div class="rule">
+
+                        <div class="rule-number">
+                            REGLA 05
+                        </div>
+
+                        <h3>Publicidad</h3>
+
+                        <p>
+                            No realices publicidad de otros servidores
+                            o comunidades sin autorización.
+                        </p>
+
+                    </div>
+
+
+                    <div class="rule">
+
+                        <div class="rule-number">
+                            REGLA 06
+                        </div>
+
+                        <h3>Staff</h3>
+
+                        <p>
+                            Respeta las decisiones del equipo de
+                            moderación y utiliza los canales correspondientes
+                            para presentar reclamos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+    <!-- DISCORD -->
+
+    <section id="discord" class="discord-section">
+
+        <div class="discord-box">
+
+            <h2>💬 Únete a nuestro Discord</h2>
+
+            <p>
+                Entra a nuestro servidor para conocer a la comunidad,
+                recibir información y participar en nuestras actividades.
+            </p>
+
+            <a
+                href="https://discord.gg/e3uEzf4DPj"
+                target="_blank"
+                class="btn discord"
+            >
+                ENTRAR AL DISCORD
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        © 2026 Sin Límites — Todos los derechos reservados.
+
+    </footer>
+
+</body>
+</html>
